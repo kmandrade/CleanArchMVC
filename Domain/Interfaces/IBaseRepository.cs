@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Domain.Interfaces
 {
-    interface IBaseRepository<TEntity> where TEntity : class
+    public interface IBaseRepository<TEntity> where TEntity : class
     {
         Task<TEntity> GetIdAsync(int id);
-        Task<IQueryable<TEntity>> GetAllAsync();
+        Task<IEnumerable<TEntity>> GetAllAsync();
         Task<TEntity> CreateAsync(TEntity entity);
         /// <summary>
         /// Altera uma entity. Para salvar, utilize o método .Salvar()
@@ -25,7 +25,7 @@ namespace Domain.Interfaces
         /// Método que salva todas as inserções/alterações/exclusões
         /// </summary>
         /// <returns></returns>
-        Task<TEntity> SaveAsync();
+        Task<int> SaveAsync();
 
         void Dispose();
     }

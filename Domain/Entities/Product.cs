@@ -1,6 +1,7 @@
 ﻿using Domain.Validation;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,10 @@ namespace Domain.Entities
 {
     public sealed class Product : Entity
     {
+        [MaxLength(50)]
         public string Name { get; private set; }
+
+        [MaxLength(50)]
         public string Description { get; private set; }
         public decimal Price { get; private set; }
         public int Stock { get; private set; }

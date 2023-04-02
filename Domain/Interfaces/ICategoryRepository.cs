@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Interfaces
 {
-    interface ICategoryRepository:IBaseRepository<Category>
+    public interface ICategoryRepository:IBaseRepository<Category>
     {
     }
 }
