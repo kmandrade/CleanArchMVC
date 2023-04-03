@@ -1,4 +1,6 @@
-﻿using Data.Context;
+﻿using Application.Interfaces;
+using Application.Services;
+using Data.Context;
 using Data.Repositories;
 using Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -21,6 +23,10 @@ namespace IOC.ConteinerDI
 
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IProductReposiroty, ProductRepository>();
+
+            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IProductService, ProductService>();
+
             return services;
         }
     }

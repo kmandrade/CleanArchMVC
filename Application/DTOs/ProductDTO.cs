@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Application.DTOs
 {
-    public class ProductDTO
+    public class ProductDto
     {
         public int Id { get; set; }
 
