@@ -1,3 +1,4 @@
+using Application.Mappings;
 using IOC.ConteinerDI;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -26,6 +27,7 @@ namespace WebUI
         {
             services.AddControllersWithViews();
             services.AddInfraStructure(Configuration);
+            services.AddAutoMapper(c => c.AddProfile<DomainToDtoMappingProfile>(), typeof(Startup));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,7 +54,7 @@ namespace WebUI
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Categories}/{action=Index}/{id?}");
             });
         }
     }

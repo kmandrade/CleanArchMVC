@@ -13,7 +13,9 @@ namespace Application.Mappings
     {
         public DomainToDtoMappingProfile()
         {
-            CreateMap<Category, CategoryDto>().ReverseMap();
+            CreateMap<Category, CategoryDto>()
+                .ForMember(dto=>dto.Name, source => source.MapFrom(ent=>ent.Name))
+                .ReverseMap();
             CreateMap<Product, ProductDto>().ReverseMap();
         }
     }
