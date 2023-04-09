@@ -1,4 +1,5 @@
-﻿using Application.Interfaces;
+﻿using Application.DTOs;
+using Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -16,6 +17,16 @@ namespace WebUI.Controllers
         {
             var categories = await _categoryService.GetallCategories();
             return View(categories);
+        }
+
+        public async Task<ActionResult>Create(CategoryDto dto)
+        {
+            if (ModelState.IsValid)
+            {
+                await _categoryService.AddCategory(dto);
+                return PartialView("Index");
+            }
+            return View(dto);
         }
     }
 }
